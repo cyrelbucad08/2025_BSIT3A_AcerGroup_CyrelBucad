@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 text-gray-800">
+    <div id="app" class="max-w-6xl mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center text-blue-700 mb-8">User Profile</h1>
+        
+        <!-- Main Layout -->
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Profile Details Section -->
+            <div class="bg-white shadow-lg rounded-[5%] p-6 flex-1">
+                <div class="flex items-center mb-4">
+                    <img id="profile-picture" src="https://via.placeholder.com/100" alt="Profile Picture" class="w-24 h-24 rounded-full object-cover border-4 border-blue-500 mr-6">
+                    <div>
+                        <h2 class="text-3xl font-semibold text-gray-800 mb-2" id="fullname">John Doe</h2>
+                        <p class="text-gray-600"><strong>Email:</strong> <span id="email">johndoe@example.com</span></p>
+                        <p class="text-gray-600"><strong>Mobile Number:</strong> <span id="mobile">123-456-7890</span></p>
+                        <p class="text-gray-600"><strong>Birthdate:</strong> <span id="birthdate">1990-01-01</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Profile Form Section -->
+            <div id="edit-profile-form" class="bg-white shadow-lg rounded-[5%] p-6 flex-1">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">Edit Profile</h2>
+                <form id="profile-form" class="space-y-6">
+                    <div>
+                        <label for="profile-picture-input" class="block text-sm font-medium text-gray-700">Profile Picture:</label>
+                        <input type="file" id="profile-picture-input" accept="image/*" class="mt-2 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                    </div>
+                    <div>
+                        <label for="fullname-input" class="block text-sm font-medium text-gray-700">Full Name:</label>
+                        <input type="text" id="fullname-input" name="fullname" placeholder="Enter full name" class="mt-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="email-input" class="block text-sm font-medium text-gray-700">Email:</label>
+                        <input type="email" id="email-input" name="email" placeholder="Enter email" class="mt-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="mobile-input" class="block text-sm font-medium text-gray-700">Mobile Number:</label>
+                        <input type="tel" id="mobile-input" name="mobile" placeholder="Enter mobile number" class="mt-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="birthdate-input" class="block text-sm font-medium text-gray-700">Birthdate:</label>
+                        <input type="date" id="birthdate-input" name="birthdate" class="mt-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-500 text-white py-3 px-4 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('profile-form');
+        const profilePictureInput = document.getElementById('profile-picture-input');
+        const profilePicture = document.getElementById('profile-picture');
+
+        profilePictureInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    profilePicture.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('fullname').textContent = document.getElementById('fullname-input').value;
+            document.getElementById('email').textContent = document.getElementById('email-input').value;
+            document.getElementById('mobile').textContent = document.getElementById('mobile-input').value;
+            document.getElementById('birthdate').textContent = document.getElementById('birthdate-input').value;
+        });
+    </script>
+</body>
+</html>

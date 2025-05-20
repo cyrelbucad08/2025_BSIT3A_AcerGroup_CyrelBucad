@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enhanced Branch Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    :root {
+      --forest-green: #228B22;
+      --citrus-splash: #E6FF5C;
+      --yellow-shade: #FFD700;
+    }
+    .btn-branch {
+      background: linear-gradient(to right, #228B22, #4CAF50);
+    }
+  </style>
+</head>
+<body class="bg-[var(--citrus-splash)] text-gray-900 scroll-smooth">
+
+  <section class="py-16 px-6">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-[var(--forest-green)] mb-4">🌿 Our Branches</h2>
+      <p class="text-lg text-gray-700 max-w-xl mx-auto">We’re growing closer to you! Find your nearest branch and experience our services today.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+
+      <!-- Branch Template -->
+      <div class="bg-white rounded-3xl shadow-lg p-8 border-t-8 border-[var(--forest-green)] hover:scale-105 hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="100">
+        <div class="flex items-center justify-center mb-4">
+          <div class="bg-[var(--forest-green)] p-4 rounded-full text-white">
+            <i data-feather="map-pin"></i>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-[var(--forest-green)] text-center mb-2">Ligao Branch</h3>
+        <p class="text-gray-600 text-center">123 Forest Lane, Ligao City</p>
+        <p class="text-sm text-gray-500 text-center mt-2">Open: Mon-Sat, 9am - 6pm</p>
+        <div class="text-center mt-5">
+          <a href="#" class="btn-branch text-white px-4 py-2 rounded-full inline-block shadow-md hover:brightness-110">Get Directions</a>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow-lg p-8 border-t-8 border-[var(--yellow-shade)] hover:scale-105 hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="200">
+        <div class="flex items-center justify-center mb-4">
+          <div class="bg-[var(--yellow-shade)] p-4 rounded-full text-white">
+            <i data-feather="map-pin"></i>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-[var(--forest-green)] text-center mb-2">Legazpi Branch</h3>
+        <p class="text-gray-600 text-center">456 Coastal Rd, Legazpi City</p>
+        <p class="text-sm text-gray-500 text-center mt-2">Open: Mon-Sun, 8am - 8pm</p>
+        <div class="text-center mt-5">
+          <a href="#" class="btn-branch text-white px-4 py-2 rounded-full inline-block shadow-md hover:brightness-110">Get Directions</a>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow-lg p-8 border-t-8 border-[var(--citrus-splash)] hover:scale-105 hover:shadow-2xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="300">
+        <div class="flex items-center justify-center mb-4">
+          <div class="bg-[var(--citrus-splash)] p-4 rounded-full text-black">
+            <i data-feather="map-pin"></i>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-[var(--forest-green)] text-center mb-2">Naga Branch</h3>
+        <p class="text-gray-600 text-center">789 Central Ave, Naga City</p>
+        <p class="text-sm text-gray-500 text-center mt-2">Open: Mon-Fri, 10am - 5pm</p>
+        <div class="text-center mt-5">
+          <a href="#" class="btn-branch text-white px-4 py-2 rounded-full inline-block shadow-md hover:brightness-110">Get Directions</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Animate on Scroll Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    feather.replace();
+  </script>
+
+</body>
+</html>
