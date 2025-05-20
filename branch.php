@@ -128,6 +128,8 @@ include 'db.php';
 
         /* Branch Section */
         .branch-section {
+            font-family: Arial, sans-serif;
+            font-weight: normal;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -138,36 +140,64 @@ include 'db.php';
         .branch-section h1 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
-            color: #ffc300;
-            font-weight: 800;
+            color: #f5cc59;
+            font-weight: 700;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
         .branch-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            width: 100%;
-        }
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
 
-        .branch {
-            position: relative;
-            background-color: rgba(245, 182, 15, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 300px;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
+
+
+.branch {
+    flex: 0 0 auto; /* ensures each branch stays fixed width */
+    width: 300px;
+    height: 200px;
+    position: relative;
+    background-color: rgba(245, 182, 15, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.branch .hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 8px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.branch:hover .hover-text {
+    opacity: 0;
+    opacity: 1;
+}
 
         .branch:hover {
             transform: scale(1.06);
@@ -175,34 +205,40 @@ include 'db.php';
         }
 
         .branch img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.5;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    filter: none; /* Start clear */
+}
 
-        .branch:hover img {
-            opacity: 0.8;
-            transform: scale(1.1);
-        }
+.branch:hover img {
+    filter: blur(3px); /* Becomes blurry on hover */
+    transform: scale(1.05);
+}
 
-        .branch-label {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            color: white;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
+
+.branch-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8px 16px;
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* slight glow for visibility */
+    backdrop-filter: blur(4px); /* background blur effect */
+    -webkit-backdrop-filter: blur(4px); /* Safari support */
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+
 
         .branch:hover .branch-label {
+            opacity: 0;
             background: rgba(0, 0, 0, 0.7);
             transform: translateX(-50%) translateY(-5px);
         }
@@ -228,19 +264,24 @@ include 'db.php';
 
     <!-- Navbar -->
     <div class="navbar">
-        <!-- Search Bar -->
-        <form class="search-bar" method="GET" action="">
-            <input type="text" name="search" placeholder="Search branches..." value="">
-            <button type="submit">🔍</button>
-        </form>
+    <!-- Left Logo/Brand (Optional) -->
+    <div style="color: #f5cc59; font-weight: bold; font-size: 1.2rem;">iPawnshop</div>
 
-        <!-- Navigation Icons -->
-        <div class="nav-icons">
-            <a href="home.php" data-tooltip="Home">🏠</a>
-            <a href="marketplace.php" data-tooltip="Marketplace">🛒</a>
-            <a href="branch.php" data-tooltip="Branches">📍</a>
-            <a href="about.php" data-tooltip="About">ℹ️</a>
-        </div>
+    <!-- Right Navigation -->
+    <div style="display: flex; align-items: center; gap: 30px;">
+        <!-- Text Navigation -->
+        <a href="home.php" style="color: white; text-decoration: none; font-size: 16px;">Home</a>
+        <a href="marketplace.php" style="color: white; text-decoration: none; font-size: 16px;">Marketplace</a>
+        <a href="branch.php" style="color: white; text-decoration: none; font-size: 16px;">Branches</a>
+        <a href="about.php" style="color: white; text-decoration: none; font-size: 16px;">About Us</a>
+
+        <!-- Cart Icon -->
+        <a href="cart.php" style="color: white; font-size: 20px;" title="Cart">🛒</a>
+
+        <!-- SANGLA NOW Button -->
+        <button onclick="window.location.href='marketplace.php'" style="background-color: #f5cc59; color: #0e2f1c; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: bold;">
+            SANGLA NOW
+        </button>
 
         <!-- Profile Menu -->
         <div class="profile-menu">
@@ -256,26 +297,37 @@ include 'db.php';
             </div>
         </div>
     </div>
+</div>
+
 
     <!-- Branch Section -->
-    <section class="branch-section">
-        <h1 data-aos="fade-down"><span style="color: #ffc300;">🌿</span> Our Branches</h1>
+<section class="branch-section">
+    <h1 data-aos="fade-down">Our Branches</h1>
 
-        <div class="branch-container">
-            <div class="branch" data-aos="zoom-in" onclick="location.href='ligao.php'">
-                <img src="images/ligao.jpg" alt="Polangui Branch">
-                <div class="branch-label">Polangui</div>
-            </div>
-            <div class="branch" data-aos="zoom-in" data-aos-delay="100" onclick="location.href='tabaco.php'">
-                <img src="images/tabaco.jpg" alt="Libon Branch">
-                <div class="branch-label">Libon</div>
-            </div>
-            <div class="branch" data-aos="zoom-in" data-aos-delay="200" onclick="location.href='legazpi.php'">
-                <img src="images/legazpi.jpg" alt="Ligao City Branch">
-                <div class="branch-label">Ligao City</div>
-            </div>
+    <div class="branch-container">
+        <!-- Polangui -->
+        <div class="branch" data-aos="zoom-in" onclick="location.href='ligao.php'">
+            <img src="images/polangui.jpg" alt="Polangui Branch">
+            <div class="branch-label">Polangui</div>
+            <div class="hover-text">Pluto Street, Centro Occidental, Polangui, Albay</div>
         </div>
-    </section>
+
+        <!-- Libon -->
+        <div class="branch" data-aos="zoom-in" data-aos-delay="100" onclick="location.href='tabaco.php'">
+            <img src="images/libon.jpg" alt="Libon Branch">
+            <div class="branch-label">Libon</div>
+            <div class="hover-text">Zone 7 Del Rosario, Libon, Albay</div>
+        </div>
+
+        <!-- Ligao City -->
+        <div class="branch" data-aos="zoom-in" data-aos-delay="200" onclick="location.href='legazpi.php'">
+            <img src="images/ligao.jpg" alt="Ligao City Branch">
+            <div class="branch-label">Ligao City</div>
+            <div class="hover-text">Zone 1 Tuburan, Ligao City, Albay</div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
