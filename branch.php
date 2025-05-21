@@ -19,7 +19,7 @@ include 'db.php';
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1d4b0b;
+            background-color: #f7d16c;
             color: white;
         }
 
@@ -140,9 +140,9 @@ include 'db.php';
         .branch-section h1 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
-            color: #f5cc59;
+            color: #1e4b0c;
             font-weight: 700;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    
         }
 
         .branch-container {

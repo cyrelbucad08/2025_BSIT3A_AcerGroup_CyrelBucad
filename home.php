@@ -292,6 +292,199 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
             color: #333;
             font-weight: bold;
         }
+        .estimator-form {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 1rem 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(40,167,69,0.06);
+            transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+        }
+        .estimator-form:hover {
+            box-shadow: 0 8px 24px rgba(40,167,69,0.18), 0 1.5px 8px rgba(40,167,69,0.10);
+            background: #f6fff8;
+            transform: translateY(-4px) scale(1.015);
+            border: 1.5px solid #28a745;
+        }
+        .estimator-form .form-row {
+            display: contents;
+        }
+        .estimator-form label {
+            align-self: center;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.3rem;
+            text-align: left;      /* <-- Make label text left-aligned */
+            padding-right: 0.5rem;
+        }
+        .estimator-form input[type="text"],
+        .estimator-form input[type="number"],
+        .estimator-form select,
+        .estimator-form textarea,
+        .estimator-form input[type="file"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .estimator-form textarea {
+            resize: vertical;
+        }
+        .estimator-form .form-row.buttons-row {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1.5rem;
+        }
+        .estimator-form .form-row.buttons-row a,
+        .estimator-form .form-row.buttons-row button {
+            min-width: 140px;
+            max-width: 200px;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            .estimator-form {
+                grid-template-columns: 1fr;
+            }
+            .estimator-form label {
+                text-align: left;
+                padding-right: 0;
+            }
+            .estimator-form .form-row.buttons-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        .estimator-form select:focus,
+        .estimator-form input[type="text"]:focus,
+        .estimator-form input[type="number"]:focus,
+        .estimator-form textarea:focus {
+            outline: 2px solid #d4a437;
+            background-color: #fffde7;
+            transition: background 0.2s, outline 0.2s;
+        }
+        .estimator-form input[type="file"]::-webkit-file-upload-button {
+            background: #d4a437;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+        .estimator-form input[type="file"]::file-selector-button {
+            background: #d4a437;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        .estimator-form .form-row > * {
+            transition: box-shadow 0.2s, background 0.2s, border-color 0.2s;
+        }
+
+        .estimator-form .form-row:hover > * {
+            box-shadow: 0 2px 12px rgba(40,167,69,0.10);
+            background: #f6fff8;
+            border-color: #28a745;
+        }
+
+        /* Make Back and Estimate Now buttons hoverable */
+        .estimator-form .form-row.buttons-row a.button,
+        .estimator-form .form-row.buttons-row button.button {
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .estimator-form .form-row.buttons-row a.button:hover {
+            background: #555;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(40,167,69,0.15);
+            transform: translateY(-2px) scale(1.04);
+            text-decoration: none;
+        }
+
+        .estimator-form .form-row.buttons-row button.button:hover {
+            background: #218838;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(40,167,69,0.15);
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        .items-section#items-section {
+            background-color: #1d4b0b !important;
+        }
+        .items-section#items-section h2,
+        .items-section#items-section p {
+            color: #fff;
+        }
+
+        /* Move navigation icons to the right, beside the profile menu */
+        .navbar .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer {
+      background-color: #1f5a22;
+      color: #fff6db;
+      padding: 40px 20px;
+      margin-top: 50px;
+    }
+
+  .footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+    .footer-section {
+      flex: 1 1 250px;
+    }
+
+    .footer h3 {
+      margin-bottom: 15px;
+      color: #ffda8e;
+    }
+
+    .footer p, .footer a {
+      color: #fff6db;
+      text-decoration: none;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #fff6db33;
+      padding-top: 15px;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
     </style>
     <script>
         // Toggle profile dropdown visibility
@@ -389,6 +582,25 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
             setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
         });
+        // Simple estimator logic
+        const multipliers = {
+            "18k": 1800,
+            "22k": 2200,
+            "24k": 2500
+        };
+
+        function updateEstimate() {
+            const grams = parseFloat(document.getElementById('grams').value) || 0;
+            const model = document.getElementById('model').value;
+            let estimate = 0;
+            if (grams > 0 && multipliers[model]) {
+                estimate = grams * multipliers[model];
+            }
+            document.getElementById('estimateResult').textContent = "Estimated Value: ₱" + estimate.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+        }
+
+        document.getElementById('grams').addEventListener('input', updateEstimate);
+        document.getElementById('model').addEventListener('change', updateEstimate);
     </script>
 </head>
 <body>
@@ -409,6 +621,9 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
         <!-- Cart Icon -->
         <a href="cart.php" style="color: white; font-size: 20px;" title="Cart">🛒</a>
 
+        <!-- Notification Icon -->
+        <a href="notification.php" style="color: white; font-size: 20px;" title="Notification">🔔</a>
+
         <!-- SANGLA NOW Button -->
         <button onclick="window.location.href='marketplace.php'" style="background-color: #f5cc59; color: #0e2f1c; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: bold;">
             SANGLA NOW
@@ -417,7 +632,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
         <!-- Profile Menu -->
         <div class="profile-menu">
             <div class="profile-icon" onclick="toggleProfileMenu()">
-                <img src="profile.jpg" alt="Profile">
+                <img src="images/profile.png" alt="Profile">
             </div>
             <div class="dropdown">
                 <a href="profile.php">Profile</a>
@@ -450,16 +665,96 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
         <button class="arrow right" onclick="nextSlide()">&#10095;</button>
     </div>
 
-    <!-- Sangla Estimator Section -->
-    <section style="padding: 4rem 2rem; background-color: #fdfdfd; text-align: center;">
-     <h2 style="color: #0e2f1c;">Sangla Estimator</h2>
-    <p style="color: #333;">Quickly estimate the value of your item before pawning.</p>
-    <button onclick="window.location.href='estimator.php'" style="margin-top: 1rem; background-color: #0e2f1c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Try Now</button>
-    </section>
+
+        <!-- Sangla Estimator-->
+
+  <section style="background-color: #f3cf7a; padding: 7rem 2rem;">
+  <div style="display: flex; justify-content: center; align-items: normal; gap: 40px; flex-wrap: wrap;">
+
+    <!-- Left Text -->
+    <div style="text-align: right;">
+      <h2 style="color: #1e460e; font-size: 40px; font-weight: bold;">sa iPawnShop</h2>
+      <p style="font-style: italic; color: #8a5b1d; font-size: 28px;">
+        Mabilis, Madali,<br />
+        Maaasahan
+      </p>
+    </div>
+
+    <!-- Center Estimator -->
+    <div style="
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 25px;
+  overflow: hidden;
+  background-color: #fff6d5;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <!-- Background Image -->
+  <img src="images/sanglaest.jpg" alt="Jewelry" style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1
+  ">
+
+  <!-- Text Layer -->
+  <div style="
+    position: relative;
+    z-index: 1.5;
+    color: #1e460e;
+    padding: 2rem;
+    text-align: left;
+  ">
+    <h3 style="margin: 0; font-size: 40px;">
+      <strong>SANGLA<br>ESTIMATOR</strong>
+    </h3>
+    <p style="font-size: 20px;">Estimate your jewelry's appraisal here →</p>
+  </div>
+</div>
+
+
+
+    <!-- Right Buttons -->
+<div style="display: flex; flex-direction: column; gap: 10px;">
+  <!-- TUBO -->
+  <div style="
+    background-color: #bd8f13;
+    color: #1e460e;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 120px;
+    text-align: left;
+  ">
+    <div style="font-size: 28px; font-weight: 800;">TUBO</div>
+    <small style="font-size: 18px;">Pay your monthly tubo here →</small>
+  </div>
+
+  <!-- TUBOS -->
+  <div style="
+    background-color: #bd8f13;
+    color: #1e460e;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 120px;
+    text-align: left;
+  ">
+    <div style="font-size: 28px; font-weight: 800;">TUBOS</div>
+    <small style="font-size: 18px;">Pay your redemption amount here →</small>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
 
     <!-- Second Section: Items We Accept -->
     <section class="items-section" id="items-section">
-        <h2 style="color: #0e2f1c;">Items we Accept</h2>
+        <h2 style="color: #d6af58;">Items we Accept</h2>
         <div class="items-container">
             <div class="item" onclick="window.location.href='marketplace.php?category=necklace'">
                 <img src="images/necklace.jpg" alt="Necklace">
@@ -485,14 +780,36 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
     </section>
 
     <!-- Tutorial Section -->
-    <section style="padding: 4rem 2rem; background-color: #d6af58; text-align: center;">
-    <h2 style="color: white;">How to Use iPawn</h2>
-    <p style="color: white;">Watch our step-by-step guide and learn how to use the platform.</p>
-    <video width="320" height="240" controls style="margin-top: 1rem;">
-        <source src="tutorial.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+<section style="padding: 4rem 2rem; background-color: #d6af58; text-align: center;">
+  <h2 style="color: white;">How to Use iPawn</h2>
+  <p style="color: white;">Watch our step-by-step guide and learn how to use the platform.</p>
+
+  <div style="display: flex; justify-content: center; gap: 30px; margin-top: 2rem; flex-wrap: wrap;">
+    <div style="position: relative; width: 200px; height: 200px; background-color: #bd8f13; border-radius: 15px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 30px;">
+      <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background-color: #1e460e; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; font-weight: bold;">1</div>
+      <div style="color: white; font-size: 12px;">Estimate Your Jewelry
+Use our Sangla Estimator on the landing page to get an instant estimate of your jewelry's value.
+Once you're ready, click “Sangla Now” to proceed.</div>
+    </div>
+
+    <div style="position: relative; width: 200px; height: 200px; background-color: #bd8f13; border-radius: 15px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 30px;">
+      <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background-color: #1e460e; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; font-weight: bold;">2</div>
+      <div style="color: white; font-weight: absolute; font-size: 12px;">Submit Appraisal Request
+Log in or create an account to continue.
+Fill out the online appraisal form and upload photos of your jewelry.
+After submitting, just wait for a notification with your appraisal result, interest, and loan offer.</div>
+    </div>
+
+    <div style="position: relative; width: 200px; height: 200px; background-color: #bd8f13; border-radius: 15px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 30px;">
+      <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background-color: #1e460e; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; font-weight: bold;">3</div>
+      <div style="color: white; font-weight: absolute; font-size: 12px;">Accept & Visit the Branch
+Review the offer, then click Accept if you agree to the terms.
+A message will guide you to visit the nearest iPawnShop branch to verify your jewelry and receive your loan.
+Once completed, track your transaction status anytime in your Sangla Dashboard.</div>
+    </div>
+  </div>
 </section>
+
 
 <!-- View Our Marketplace Section -->
 <section style="padding: 4rem 2rem; background-color: #fdfdfd; text-align: center;">
@@ -515,6 +832,58 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
         <p><strong>A:</strong> We accept necklace, earrings, rings, watch, and bracelet.</p>
     </div>
 </section>
+
+<!-- Footer -->
+
+<footer class="footer">
+  <div class="footer-container">
+    
+   <!-- Logo Section -->
+    <div class="footer-section" style="flex: 1; display: flex; justify-content: flex-start;">
+     <img src="images/logo1.jpg" alt="Footer Logo" style="width: 150px; height: 150px;">
+    </div>
+
+
+    <!-- About Us -->
+    <div class="footer-section" style="flex: 1;">
+      <h3>About Us</h3>
+      <p>Trusted Pawnshop since 2025. We provide fair and fast loan services secured with valuable collaterals.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section" style="flex: 1;">
+      <h3>Quick Links</h3>
+      <p><a href="home.php">Home</a></p>
+      <p><a href="marketplace.php">Marketplace</a></p>
+      <p><a href="branch.php">Branch</a></p>
+      <p><a href="about.php">About Us</a></p>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-section" style="flex: 1;">
+      <h3>Contact Info</h3>
+      <p>Email: support@ipawnshop.com</p>
+      <p>Phone: 0907-536-5447</p>
+      <p>Address: 123 iPawnshop Lane, Philippines</p>
+    </div>
+
+    <!-- Business Hours -->
+    <div class="footer-section" style="flex: 1;">
+      <h3>Business Hours</h3>
+      <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+      <p>Saturday: 9:00 AM - 4:00 PM</p>
+      <p>Sunday: Closed</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 iPawnshop. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
 
     <!-- Search Results Section -->
     <?php if (!empty($search_results)): ?>
